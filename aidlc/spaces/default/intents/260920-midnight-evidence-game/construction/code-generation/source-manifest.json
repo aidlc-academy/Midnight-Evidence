@@ -1,0 +1,57 @@
+{
+  "stage": "code-generation",
+  "intent": "260920-midnight-evidence-game",
+  "generated_at": "2026-09-20T12:07:52Z",
+  "workspace_root": "/aidlc-workshop",
+  "files": [
+    {
+      "path": "index.html",
+      "role": "entry-point",
+      "description": "Single-page HTML shell: canvas element, stylesheet, game module",
+      "sha256": "692ae4bb3e80b820946fec15c43d1b9f79898343592cc1e3893e78b193b32ae8"
+    },
+    {
+      "path": "game.js",
+      "role": "main-module",
+      "description": "All game logic: GameState, GameManager, LaserSpawner, detectCollision, Detective, Laser, Renderer, GameLoop",
+      "sha256": "2648628964f32fb3afbbebb26e482109614cd2eab8be83da9624a44a6fbc67ac"
+    },
+    {
+      "path": "style.css",
+      "role": "stylesheet",
+      "description": "Dark page background, canvas centering, max-size responsive scaling",
+      "sha256": "50ab9e5aab7fb9412222625c4b9662ffacceb858f564a4d21d075289c32d9dc8"
+    },
+    {
+      "path": "package.json",
+      "role": "dev-config",
+      "description": "vitest + jsdom dev dependencies; npm test command",
+      "sha256": "e48753f7425b0b957cd402c7238a417f1ede604c6b595a9d0ffe6c42058b4368"
+    },
+    {
+      "path": "vitest.config.js",
+      "role": "test-config",
+      "description": "jsdom environment, globals: true, include: game.test.js",
+      "sha256": "f75319c8828e6e3fe067f22e9fe19c71fb2b208754c6aa23c226a5c20eb7e884"
+    },
+    {
+      "path": "game.test.js",
+      "role": "test-suite",
+      "description": "50 tests — GameManager, LaserSpawner, detectCollision, Detective, Laser, Renderer",
+      "sha256": "97a9dfe5edc01a0bb3029627dc6e3b0d767d631951918ca1db1d10ca39402dfa"
+    }
+  ],
+  "test_run": {
+    "command": "npx vitest run --reporter=verbose game.test.js",
+    "result": "50 passed, 0 failed",
+    "duration_ms": 545
+  },
+  "requirements_covered": [
+    "FR1.1", "FR1.2", "FR1.3", "FR1.4", "FR1.5", "FR1.6",
+    "FR2.1", "FR2.2", "FR2.3", "FR2.4", "FR2.5",
+    "FR3.1", "FR3.2", "FR3.3", "FR3.4",
+    "FR4.1", "FR4.2", "FR4.3", "FR4.4", "FR4.5", "FR4.6",
+    "FR5.1", "FR5.2", "FR5.3", "FR5.4",
+    "NFR1", "NFR2", "NFR3", "NFR4"
+  ]
+}

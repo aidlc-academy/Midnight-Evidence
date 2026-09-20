@@ -1,0 +1,160 @@
+{
+  "stage": "code-generation",
+  "unit": null,
+  "upstream_ids": [
+    "FR1.1", "FR1.2", "FR1.3", "FR1.4", "FR1.5", "FR1.6",
+    "FR2.1", "FR2.2", "FR2.3", "FR2.4", "FR2.5",
+    "FR3.1", "FR3.2", "FR3.3", "FR3.4",
+    "FR4.1", "FR4.2", "FR4.3", "FR4.4", "FR4.5", "FR4.6",
+    "FR5.1", "FR5.2", "FR5.3", "FR5.4",
+    "NFR1", "NFR2", "NFR3", "NFR4"
+  ],
+  "coverage": [
+    {
+      "id": "FR1.1",
+      "status": "OK",
+      "target": "game.js: GameLoop._render → Renderer.drawBackground(scrollOffset); corridor scrolls via scrollOffset += SCROLL_SPEED * dt each frame"
+    },
+    {
+      "id": "FR1.2",
+      "status": "OK",
+      "target": "game.js: Detective fixed at x=160; world scrolls left at SCROLL_SPEED=220 px/s via laser.update(dt) and scrollOffset"
+    },
+    {
+      "id": "FR1.3",
+      "status": "OK",
+      "target": "game.js: Detective constructor sets onCeiling=false, y=FLOOR_Y−DETECTIVE_HEIGHT; Detective.reset() restores same"
+    },
+    {
+      "id": "FR1.4",
+      "status": "OK",
+      "target": "game.js: Detective.update() snaps y to resting surface when not flipping; Detective runs on whichever surface it currently occupies"
+    },
+    {
+      "id": "FR1.5",
+      "status": "OK",
+      "target": "game.js: Detective.flip() toggles onCeiling; GameLoop._handleKeyDown processes Space → flip() in same frame; tested FR1.5"
+    },
+    {
+      "id": "FR1.6",
+      "status": "OK",
+      "target": "game.js: Detective.update() smoothstep lerp over FLIP_DURATION=0.28 s (≤300 ms); tested FR1.6 — arrives within 300 ms simulated"
+    },
+    {
+      "id": "FR2.1",
+      "status": "OK",
+      "target": "game.js: LaserSpawner._buildDescriptor() assigns surface = rng < 0.5 ? 'floor' : 'ceiling'; tested FR2.1"
+    },
+    {
+      "id": "FR2.2",
+      "status": "OK",
+      "target": "game.js: Laser.update(dt) moves x -= SCROLL_SPEED * dt; same constant as corridor scroll"
+    },
+    {
+      "id": "FR2.3",
+      "status": "OK",
+      "target": "game.js: LaserSpawner.currentInterval(score) = max(minInterval, baseInterval − score×reductionFactor); tested FR2.3"
+    },
+    {
+      "id": "FR2.4",
+      "status": "OK",
+      "target": "game.js: LaserSpawner minInterval=1.5 s; currentInterval(0)=2.8 s; interval never falls below 1.5 s; tested FR2.4"
+    },
+    {
+      "id": "FR2.5",
+      "status": "OK",
+      "target": "game.js: Renderer.drawLaser() draws beam rect of height ≥ LASER_MIN_HEIGHT=90 px spanning from mount surface"
+    },
+    {
+      "id": "FR3.1",
+      "status": "OK",
+      "target": "game.js: detectCollision(a, b) AABB overlap; called each frame in GameLoop._update for each active laser; tested FR3.1"
+    },
+    {
+      "id": "FR3.2",
+      "status": "OK",
+      "target": "game.js: GameLoop._update → detectCollision → manager.endGame() transitions to GAME_OVER immediately"
+    },
+    {
+      "id": "FR3.3",
+      "status": "OK",
+      "target": "game.js: GameLoop._update evasion check: db.x > lb.x+lb.width and !laser.scored → laser.markScored() + manager.addPoint(); tested FR3.3 + double-count guard"
+    },
+    {
+      "id": "FR3.4",
+      "status": "OK",
+      "target": "game.js: Renderer.drawHUD(score, highScore) draws SCORE top-left and BEST top-right; rendered every frame during PLAYING state; tested FR3.4 smoke"
+    },
+    {
+      "id": "FR4.1",
+      "status": "OK",
+      "target": "game.js: GameState enum {START, PLAYING, GAME_OVER}; GameManager.currentState; tested FR4.1"
+    },
+    {
+      "id": "FR4.2",
+      "status": "OK",
+      "target": "game.js: Renderer.drawStartScreen(highScore) shows title 'MIDNIGHT EVIDENCE', highScore, and spacebar instruction; tested FR4.2"
+    },
+    {
+      "id": "FR4.3",
+      "status": "OK",
+      "target": "game.js: GameLoop._handleKeyDown Space in START state → _beginPlay() → manager.startGame(); tested FR4.3"
+    },
+    {
+      "id": "FR4.4",
+      "status": "OK",
+      "target": "game.js: Renderer.drawGameOverScreen(score, highScore) shows session score + all-time high score; tested FR4.4 smoke"
+    },
+    {
+      "id": "FR4.5",
+      "status": "OK",
+      "target": "game.js: Space in GAME_OVER state → _returnToStart() → manager.reset() → START; drawGameOverScreen includes restart prompt; tested FR4.5"
+    },
+    {
+      "id": "FR4.6",
+      "status": "OK",
+      "target": "game.js: GameManager._loadHighScore() reads localStorage on construct; _saveHighScore() writes on endGame when score > highScore; tested FR4.6"
+    },
+    {
+      "id": "FR5.1",
+      "status": "OK",
+      "target": "index.html: <canvas id='gameCanvas'>; game.js: Renderer wraps CanvasRenderingContext2D; no external image assets used"
+    },
+    {
+      "id": "FR5.2",
+      "status": "OK",
+      "target": "game.js: Renderer.drawBackground() dark #0d0d1a/#12121f palette; lasers #ff1a1a; detective #f0c040 on dark field"
+    },
+    {
+      "id": "FR5.3",
+      "status": "OK",
+      "target": "game.js: Renderer.drawDetective() draws amber/gold (#f0c040) rectangle with coat and eyes — high contrast on dark corridor"
+    },
+    {
+      "id": "FR5.4",
+      "status": "OK",
+      "target": "index.html: canvas width=800 height=400; style.css: max-width/max-height 100vw/100vh — scales responsively while maintaining aspect ratio"
+    },
+    {
+      "id": "NFR1",
+      "status": "OK",
+      "target": "game.js: GameLoop._loop() uses requestAnimationFrame at 60 fps; dt capped at 50 ms to prevent spiral-of-death"
+    },
+    {
+      "id": "NFR2",
+      "status": "OK",
+      "target": "game.js: _handleKeyDown processes Space synchronously in the keydown event — flip queued and executed within the same animation frame"
+    },
+    {
+      "id": "NFR3",
+      "status": "OK",
+      "target": "index.html type=module; game.js uses only standard HTML5 Canvas 2D API and Web APIs; no transpilation required for current Chrome/Firefox/Safari"
+    },
+    {
+      "id": "NFR4",
+      "status": "OK",
+      "target": "Three files: index.html, game.js, style.css; package.json/vitest.config.js are dev-only; no runtime dependencies, no external network requests"
+    }
+  ],
+  "reverse": []
+}

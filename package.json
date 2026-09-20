@@ -1,0 +1,13 @@
+{
+  "name": "midnight-evidence",
+  "version": "1.0.0",
+  "description": "Midnight Evidence — gravity-flipping browser arcade game",
+  "type": "module",
+  "scripts": {
+    "test": "vitest run --reporter=verbose game.test.js"
+  },
+  "devDependencies": {
+    "jsdom": "^25.0.1",
+    "vitest": "2.1.9"
+  }
+}

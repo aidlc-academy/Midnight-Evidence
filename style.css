@@ -1,0 +1,30 @@
+/* Midnight Evidence — minimal layout styles */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  background-color: #0a0a0f;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+#gameCanvas {
+  display: block;
+  background-color: #111118;
+  /* Border gives the canvas a subtle frame */
+  border: 2px solid #1a1a2e;
+  /* Shadow for depth */
+  box-shadow: 0 0 40px rgba(0, 200, 255, 0.08);
+  /* Canvas is fixed 800×400; CSS scales it to fit viewport */
+  max-width: 100vw;
+  max-height: 100vh;
+}
