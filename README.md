@@ -17,19 +17,28 @@ A browser-based gravity-flipping arcade game where players control a detective n
 * **Build Tool:** Vite
 * **Testing:** Vitest
 
-## Local Development
+## How to Run the Project
 
-To run this project locally on your machine:
+To run Midnight Evidence locally on your machine, follow these steps:
 
-1. Clone the repository and navigate into the project directory.
-2. Install the required dependencies:
+1. **Install dependencies:**
+   Make sure you have Node.js installed, then run the following command in your project folder to install all required packages:
    ```bash
    npm install
+
+2. **Start the development server**
+   Launch the local Vite server by running:
+   ```bash
+   npm run dev
+   
 
 ## Resources
 1. src/ - Core TypeScript logic, entities, game states, and systems.
 2. assets/ - Game audio and geometric sprites.
 3. img/ - Gameplay screenshots and UI mockups.
+
+## Author
+Ayush Padaliya
 
 ## Author
 Ayush Padaliya
