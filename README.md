@@ -37,8 +37,7 @@ To run Midnight Evidence locally on your machine, follow these steps:
 2. assets/ - Game audio and geometric sprites.
 3. img/ - Gameplay screenshots and UI mockups.
 
-## Author
-Ayush Padaliya
+
 
 ## Author
 Ayush Padaliya
