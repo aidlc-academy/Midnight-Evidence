@@ -26,10 +26,10 @@ To run this project locally on your machine:
    ```bash
    npm install
 
-Resources
-src/ - Core TypeScript logic, entities, game states, and systems.
-assets/ - Game audio and geometric sprites.
-img/ - Gameplay screenshots and UI mockups.
+## Resources
+1. src/ - Core TypeScript logic, entities, game states, and systems.
+2. assets/ - Game audio and geometric sprites.
+3. img/ - Gameplay screenshots and UI mockups.
 
-Author
+## Author
 Ayush Padaliya
